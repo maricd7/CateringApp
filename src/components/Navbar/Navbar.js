@@ -1,9 +1,17 @@
 import React from 'react'
-
+import Cta from '../Buttons/Cta'
+import Bag from '../Buttons/Bag'
 function Navbar() {
   return (
-    <div>
-      <h4 className='text-white'>CaterEase</h4>
+    <div className='mt-6 mx-6 flex justify-between items-center'>
+      <h4 className='text-gray-900 font-bold'>CaterEase</h4>
+      <ul className='flex justify-between	items-center w-96'>
+        <a><li>Home</li></a>
+        <a><li>About</li></a>
+        <a><li>Menu</li></a>
+        <Cta/>
+        <Bag/>
+      </ul>
     </div>
   )
 }

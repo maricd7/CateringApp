@@ -1,8 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+
+  ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'ctaGradStart':'#D84F03',
+        'ctaGradEnd':'#DC3100',
+        'primCol':'#D94D03'
+      },
+    },
   },
   plugins: [],
 }
