@@ -3,7 +3,7 @@ import Cta from '../Buttons/Cta'
 import Bag from '../Buttons/Bag'
 function Navbar() {
   return (
-    <div className='mt-6 mx-6 flex justify-between items-center'>
+    <div className='mt-6 mx-24 flex justify-between items-center'>
       <h4 className='text-gray-900 font-bold'>CaterEase</h4>
       <ul className='flex justify-between	items-center w-96'>
         <a><li>Home</li></a>
