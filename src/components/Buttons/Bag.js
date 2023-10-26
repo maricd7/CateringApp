@@ -1,9 +1,9 @@
 import React from 'react'
 import { Icon } from '@iconify/react'
-function Bag() {
+function Bag({toggleCart}) {
   return (
-    <div>
-      <Icon  width="32" height="32" icon="material-symbols:shopping-bag-outline-sharp" 
+    <div className='fixed right-24 bottom-12 z-40' onClick={toggleCart}>
+      <Icon  width="64" height="64" icon="material-symbols:shopping-bag-outline-sharp" 
       className='bg-gradient-to-r from-ctaGradStart to-ctaGradEnd 
       text-white 
       rounded-full 

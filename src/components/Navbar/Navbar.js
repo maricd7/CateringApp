@@ -10,7 +10,6 @@ function Navbar() {
         <a><li>About</li></a>
         <a><li>Menu</li></a>
         <Cta/>
-        <Bag/>
       </ul>
     </div>
   )
