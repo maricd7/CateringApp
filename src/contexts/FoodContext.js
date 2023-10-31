@@ -5,7 +5,7 @@ const FoodContext = createContext({
   foods: null,
   cart: null,
   addToCart: () => [],
-  removeFromCart: ()=>[]
+  removeFromCart: () => [],
 });
 
 export const FoodContextProvider = ({ children }) => {
@@ -28,16 +28,17 @@ export const FoodContextProvider = ({ children }) => {
   }, []);
 
   const addToCart = (id) => {
-    const foundFood = foods.filter((food) => food.idMeal === id);
-
-    setCart([...cart ,...foundFood]);
+    const foundFood = foods.find((food) => food.idMeal === id);
+    setCart([...cart, foundFood]);
+   
   };
 
-  const removeFromCart = (id)=>{
-    const newFoods = cart.filter((food)=>food.idMeal !== id)
-    // console.log(newFoods)
-    setCart([...newFoods])
-  }
+  const removeFromCart = (id) => {
+    if( cart.length <1){
+    }
+    const newFoods = cart.filter((food) => food.idMeal !== id);
+    setCart([...newFoods]);
+  };
 
   const contextValue = {
     foods,

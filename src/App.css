@@ -32,3 +32,9 @@
     width: 25%; 
     
   }
+.cart-animate button{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
