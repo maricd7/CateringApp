@@ -12,9 +12,23 @@
 
   .animated-element {
     animation: bounce 2s ease-in-out infinite;
-    display: inline-block; /* To keep the width and height centered */
+    display: inline-block; 
 
     background-color: #3490dc;
     color: #ffffff;
 
+  }
+  @keyframes move-in {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0); 
+    }
+  }
+  
+  .cart-animate {
+    animation: move-in 0.2s ease-in;
+    width: 25%; 
+    
   }

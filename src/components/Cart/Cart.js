@@ -13,7 +13,6 @@ export const Cart = () => {
     setToggleCart(!toggleCart);
   };
 
-
   const removeFoodFromCart = (id)=> ()=>{
     removeFromCart(id);
     console.log(id)
@@ -21,7 +20,7 @@ export const Cart = () => {
   return (
     <div>
       {toggleCart && (
-        <div className="fixed top-0 right-0 w-1/4 h-full bg-white z-50 shadow-lg py-4 px-4 overflow-scroll">
+        <div className="cart-animate fixed top-0 right-0  h-full bg-white z-50 shadow-lg py-4 px-4 overflow-scroll">
           <div className="flex w-full justify-between items-center">
             <h2 className="text-2xl font-bold">Your Cart</h2>
             <Icon
