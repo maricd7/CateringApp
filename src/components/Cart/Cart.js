@@ -8,9 +8,14 @@ export const Cart = () => {
   const { cart } = useFoodContext();
   const { foods, addToCart, removeFromCart } = useFoodContext();
   const [toggleCart, setToggleCart] = useState(false);
+  const [quantity, setQuantity] = useState(1); 
+
 
   const cartToggler = () => {
     setToggleCart(!toggleCart);
+  };
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
   };
 
   const removeFoodFromCart = (id) => () => {
@@ -46,11 +51,16 @@ export const Cart = () => {
                       />
                       <div className="flex-col gap-4">
                         <h2 className="text-blackTxt">{meal.strMeal}</h2>
-                        <h2 className="text-blackTxt font-bold">$20</h2>
-                        <select name="cars" id="cars">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
+                        <h2 className="text-blackTxt font-bold">${quantity*20}</h2>
+                        <select
+                          name="quantity"
+                          id="quantity"
+                          value={quantity}
+                          onChange={(e) => handleQuantityChange(e.target.value)}
+                        >
+                          <option value={1}>1</option>
+                          <option value={2}>2</option>
+                          <option value={3}>3</option>
                         </select>
                       </div>
                     </div>
@@ -65,7 +75,7 @@ export const Cart = () => {
                 </li>
               ))}
             </ul>
-            <CtaButton text='Go to checkout'/>
+            <a href="/checkout"><CtaButton text='Go to checkout'/></a>
           </div>
         </div>
       )}
