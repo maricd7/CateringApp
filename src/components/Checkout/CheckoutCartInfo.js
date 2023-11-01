@@ -1,10 +1,18 @@
-import React from "react";
-import { useFoodContext } from "../../contexts";
+import React, { useEffect } from "react";
 
-export  const CheckoutCartInfo = () => {
-  const { cart } = useFoodContext();
+import { useState } from "react";
+export const CheckoutCartInfo = () => {
+  const [checkoutCart, setCheckoutCart] = useState([]);
 
-  console.log(cart, "cart in CheckoutCartInfo");
-};
+ useEffect(()=>{
+  setCheckoutCart(JSON.parse(localStorage.getItem("myCart")));
+ }, []); 
 
 
+ return(
+  <div>
+    {checkoutCart.map((item)=>(
+      <div>{item.strMeal}</div>
+    ))}
+  </div>
+)}

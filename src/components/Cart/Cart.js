@@ -6,7 +6,7 @@ import { useFoodContext } from "../../contexts";
 import {CtaButton} from '../common'
 export const Cart = () => {
   const { cart } = useFoodContext();
-  const { foods, addToCart, removeFromCart } = useFoodContext();
+  const { foods, addToCart, removeFromCart,saveCart } = useFoodContext();
   const [toggleCart, setToggleCart] = useState(false);
   const [quantity, setQuantity] = useState(1); 
 
@@ -75,7 +75,7 @@ export const Cart = () => {
                 </li>
               ))}
             </ul>
-            <a href="/checkout"><CtaButton text='Go to checkout'/></a>
+            <a href="/checkout"><CtaButton text='Go to checkout' onClick={saveCart(cart)}/></a>
           </div>
         </div>
       )}
