@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { fetchRandomFood } from "../api";
-
+import { cateringMeals } from "../data/Data";
 const FoodContext = createContext({
   foods: null,
   cart: null,
@@ -13,30 +13,34 @@ export const FoodContextProvider = ({ children }) => {
   const [foods, setFoods] = useState(null);
   const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    const fetchAllRandomMeals = async () => {
-      const mealPromises = [];
+  // useEffect(() => {
+  //   const fetchAllRandomMeals = async () => {
+  //     const mealPromises = [];
 
-      for (let i = 0; i < 8; i++) {
-        mealPromises.push(fetchRandomFood());
-      }
-      const mealData = await Promise.all(mealPromises);
+  //     for (let i = 0; i < 8; i++) {
+  //       mealPromises.push(fetchRandomFood());
+  //     }
+  //     const mealData = await Promise.all(mealPromises);
 
-      setFoods(mealData);
-    };
+  //     setFoods(mealData);
+  //   };
 
-    fetchAllRandomMeals();
-  }, []);
+  //   fetchAllRandomMeals();
+  // }, []);
+  useEffect(()=>{
+    setFoods(cateringMeals)
+  },[])
 
   const addToCart = (id) => {
-    const foundFood = foods.find((food) => food.idMeal === id);
+    console.log(cateringMeals)
+    const foundFood = foods.find((food) => food.id === id);
     setCart([...cart, foundFood]);
   };
 
   const removeFromCart = (id) => {
     if( cart.length <1){
     }
-    const newFoods = cart.filter((food) => food.idMeal !== id);
+    const newFoods = cart.filter((food) => food.id !== id);
     setCart([...newFoods]);
   };
  const saveCart = (cart)=>{

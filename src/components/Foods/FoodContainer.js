@@ -28,10 +28,10 @@ function FoodContainer() {
         {foods.map((meal, index) => (
           <li key={index}>
             <div className="max-w-1/2 rounded-lg relative bg-white p-4 shadow-lg flex flex-col gap-4 border border-zinc-200 hover:scale-110">
-              <img className="rounded-lg" src={meal.strMealThumb} alt={meal.strMeal} />
-              <h2 className="text-blackTxt">{meal.strMeal}</h2>
-              <h2 className="text-blackTxt font-bold">$20</h2>
-              <AddToBag onClick={addProductItemToContext(meal.idMeal)} />
+              <img className="rounded-lg w-80 h-72" src={meal.image} alt={meal.name} />
+              <h2 className="text-blackTxt">{meal.name}</h2>
+              <h2 className="text-blackTxt font-bold">${meal.price}</h2>
+              <AddToBag onClick={addProductItemToContext(meal.id)} />
             </div>
           </li>
         ))}

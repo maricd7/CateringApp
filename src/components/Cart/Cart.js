@@ -45,12 +45,12 @@ export const Cart = () => {
                   <div className="flex justify-between items-center gap-4">
                     <div className="flex gap-4 items-center">
                       <img
-                        className="rounded-lg max-w-1/4 "
-                        src={meal.strMealThumb}
-                        alt={meal.strMeal}
+                        className="rounded-lg max-w-1/4 h-1/4"
+                        src={meal.image}
+                        alt={meal.name}
                       />
                       <div className="flex-col gap-4">
-                        <h2 className="text-blackTxt">{meal.strMeal}</h2>
+                        <h2 className="text-blackTxt">{meal.name}</h2>
                         <h2 className="text-blackTxt font-bold">${quantity*20}</h2>
                         <select
                           name="quantity"
@@ -68,8 +68,8 @@ export const Cart = () => {
                       icon="material-symbols:delete-outline"
                       width={32}
                       height={32}
-                      className="cursor-pointer"
-                      onClick={removeFoodFromCart(meal.idMeal)}
+                      className="cursor-pointer w-32 h-32"
+                      onClick={removeFoodFromCart(meal.id)}
                     />
                   </div>
                 </li>
