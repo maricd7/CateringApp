@@ -2,4 +2,4 @@
 //add blog page
 //add admin cns to create blogs and to add meals 
 //redo checkout page 
-// 
+// make blogs slider on the home page
