@@ -27,25 +27,25 @@ export const FoodContextProvider = ({ children }) => {
 
   //   fetchAllRandomMeals();
   // }, []);
-  useEffect(()=>{
-    setFoods(cateringMeals)
-  },[])
+  useEffect(() => {
+    setFoods(cateringMeals);
+  }, []);
 
   const addToCart = (id) => {
-    console.log(cateringMeals)
+    console.log(cateringMeals);
     const foundFood = foods.find((food) => food.id === id);
     setCart([...cart, foundFood]);
   };
 
   const removeFromCart = (id) => {
-    if( cart.length <1){
+    if (cart.length < 1) {
     }
     const newFoods = cart.filter((food) => food.id !== id);
     setCart([...newFoods]);
   };
- const saveCart = (cart)=>{
-  localStorage.setItem('myCart', JSON.stringify(cart));
- }
+  const saveCart = (cart) => {
+    localStorage.setItem("myCart", JSON.stringify(cart));
+  };
   const contextValue = {
     foods,
     cart,

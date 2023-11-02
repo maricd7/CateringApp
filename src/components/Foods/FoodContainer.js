@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddToBag from "../Buttons/AddToBag";
 import { useFoodContext } from "../../contexts";
-import { CartModal } from "../common";
+import { CartModal, Secondary } from "../common";
 
 function FoodContainer() {
   const [modal, setModal] = useState(false);
@@ -43,10 +43,22 @@ function FoodContainer() {
               <h2 className="text-blackTxt">{meal.name}</h2>
               <p className="text-gray-400 h-24">{meal.description}</p>
               <div className="flex gap-4 items-center">
-                <h4 className="text-blackTxt font-bold text-3xl">${(meal.price-(meal.price*meal.discount/100)).toFixed(2)}</h4>
-                {meal.discount>0 && (<h4 className="text-gray-500 line-through text-2xl">${meal.price}</h4>)}
+                <h4 className="text-blackTxt font-bold text-3xl">
+                  $
+                  {(meal.price - (meal.price * meal.discount) / 100).toFixed(2)}
+                </h4>
+                {meal.discount > 0 && (
+                  <h4 className="text-gray-500 line-through text-2xl">
+                    ${meal.price}
+                  </h4>
+                )}
               </div>
-              <AddToBag onClick={addProductItemToContext(meal.id)} />
+              <Secondary
+                color='#D94D03'
+                text="Add to Bag"
+                iconName="material-symbols:fastfood-outline"
+                onClick={addProductItemToContext(meal.id)}
+              />
             </div>
           </li>
         ))}

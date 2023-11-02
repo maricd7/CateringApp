@@ -17,11 +17,11 @@ export const HeroText = () => {
         to a world of exquisite flavors, culinary talent, and unforgettable
         experiences.{" "}
       </p>
-      <CtaButton
-        iconName="material-symbols:phone-enabled-sharp"
-        text="Contact us"
+      <a href="#foods"><CtaButton
+        iconName="material-symbols:fastfood-outline"
+        text="Order food"
         onClick={onCtaButtonClick}
-      />
+      /></a>
     </div>
   );
 };
