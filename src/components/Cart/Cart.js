@@ -3,18 +3,18 @@ import Bag from "../Buttons/Bag";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useFoodContext } from "../../contexts";
-import {CtaButton} from '../common'
+import { CtaButton } from "../common";
 export const Cart = () => {
   const { cart } = useFoodContext();
-  const { foods, addToCart, removeFromCart,saveCart } = useFoodContext();
+  const { foods, addToCart, removeFromCart, saveCart } = useFoodContext();
   const [toggleCart, setToggleCart] = useState(false);
-  const [quantity, setQuantity] = useState(1); 
-
+  const [quantity, setQuantity] = useState(1);
 
   const cartToggler = () => {
     setToggleCart(!toggleCart);
   };
-  const handleQuantityChange = (newQuantity) => {
+  const handleQuantityChange = (newQuantity, meal) => {
+    meal.quantity = newQuantity;
     setQuantity(newQuantity);
   };
 
@@ -22,7 +22,7 @@ export const Cart = () => {
     removeFromCart(id);
     console.log(id);
   };
- 
+
   return (
     <div>
       {toggleCart && (
@@ -39,7 +39,7 @@ export const Cart = () => {
           </div>
           <div>
             <ul className="flex flex-wrap gap-8 justify-between mb-8">
-            {(!cart.length) && <div className="mt-4">Your cart is empty.</div>}
+              {!cart.length && <div className="mt-4">Your cart is empty.</div>}
               {cart.map((meal, index) => (
                 <li key={index} className="mt-4">
                   <div className="flex justify-between items-center gap-4">
@@ -51,12 +51,16 @@ export const Cart = () => {
                       />
                       <div className="flex-col gap-4">
                         <h2 className="text-blackTxt">{meal.name}</h2>
-                        <h2 className="text-blackTxt font-bold">${quantity*20}</h2>
+                        <h2 className="text-blackTxt font-bold">
+                          ${meal.price}
+                        </h2>
                         <select
                           name="quantity"
                           id="quantity"
-                          value={quantity}
-                          onChange={(e) => handleQuantityChange(e.target.value)}
+                          value={meal.quantity}
+                          onChange={(e) =>
+                            handleQuantityChange(e.target.value, meal)
+                          }
                         >
                           <option value={1}>1</option>
                           <option value={2}>2</option>
@@ -75,7 +79,9 @@ export const Cart = () => {
                 </li>
               ))}
             </ul>
-            <a href="/checkout"><CtaButton text='Go to checkout' onClick={saveCart(cart)}/></a>
+            <a href="/checkout">
+              <CtaButton text="Go to checkout" onClick={saveCart(cart)} />
+            </a>
           </div>
         </div>
       )}
