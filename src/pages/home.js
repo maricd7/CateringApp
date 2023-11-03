@@ -10,14 +10,16 @@ import React from "react";
 import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Newsletter } from "../components/Newsletter";
+import { TopProduct } from "../components/TopProduct";
 
 export const Home = () => {
   return (
     <div className="App">
       <Hero />
+      <TopProduct/>
       <FoodContextProvider>
         <Foods />
-        <About />
+        {/* <About /> */}
         <Newsletter/>
         <Thanks />
         <Footer />
