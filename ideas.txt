@@ -1,5 +1,5 @@
 //add array of products fetched data dont have quantity property neither does it have price .. 
 //add blog page
-//add admin cns to create blogs and to add meals 
 //redo checkout page 
 // make blogs slider on the home page
+//add meal of the day component 
