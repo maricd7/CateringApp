@@ -16,8 +16,8 @@ export const Home = () => {
   return (
     <div className="App">
       <Hero />
-      <TopProduct/>
       <FoodContextProvider>
+      <TopProduct/>
         <Foods />
         {/* <About /> */}
         <Newsletter/>

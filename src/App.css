@@ -39,3 +39,8 @@
   display: flex;
 }
 
+.top-product-bg{
+  background-image: url('/src/components/images/topproduct-banner.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

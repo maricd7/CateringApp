@@ -7,11 +7,13 @@ const FoodContext = createContext({
   addToCart: () => [],
   removeFromCart: () => [],
   saveCart: () => [],
+  getTopProduct:null,
 });
 
 export const FoodContextProvider = ({ children }) => {
-  const [foods, setFoods] = useState(null);
+  const [foods, setFoods] = useState(cateringMeals);
   const [cart, setCart] = useState([]);
+  const [topProduct, setTopProduct] = useState(null);
 
   // useEffect(() => {
   //   const fetchAllRandomMeals = async () => {
@@ -27,9 +29,6 @@ export const FoodContextProvider = ({ children }) => {
 
   //   fetchAllRandomMeals();
   // }, []);
-  useEffect(() => {
-    setFoods(cateringMeals);
-  }, []);
 
   const addToCart = (id) => {
     console.log(cateringMeals);
@@ -46,12 +45,32 @@ export const FoodContextProvider = ({ children }) => {
   const saveCart = (cart) => {
     localStorage.setItem("myCart", JSON.stringify(cart));
   };
+
+  const getTopProduct = () => {
+    function compareNumbers(a, b) {
+      return a - b;
+    }
+    const discounts = [];
+    foods.forEach((food) => {
+      discounts.push(food.discount);
+    });
+    let lastIndex = discounts.length - 1;
+    const discountedProduct = foods.filter(
+      (meal) => meal.discount === discounts[lastIndex]
+    );
+    setTopProduct(discountedProduct[0]);
+    return discountedProduct[0];
+  };
+
   const contextValue = {
     foods,
     cart,
     addToCart,
     removeFromCart,
     saveCart,
+    topProduct,
+    getTopProduct,
+    setTopProduct,
   };
 
   return (
