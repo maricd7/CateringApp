@@ -1,5 +1,6 @@
 import React from 'react'
 import { TopProductDiscount } from './TopProductDiscount'
+import { TopProductImg } from './TopProductImg'
 
 export const TopProductBox = ({myTopProduct}) => {
   return (
@@ -7,11 +8,7 @@ export const TopProductBox = ({myTopProduct}) => {
     {myTopProduct && (
       <div className="bg-opacity-20 backdrop-blur-md p-4 rounded-lg shadow-md bg-white bg-clip-padding">
        <TopProductDiscount discount={myTopProduct.discount}/>
-        <img
-          src={myTopProduct.image}
-          alt={myTopProduct.name}
-          className="w-48 h-48 object-cover mx-auto"
-        />
+       <TopProductImg myTopProduct={myTopProduct}/>
         <h3 className="text-xl font-semibold mt-4">{myTopProduct.name}</h3>
         <div className="flex gap-4 items-center	">
           <p className="text-blackTxt font-bold text-2xl">
