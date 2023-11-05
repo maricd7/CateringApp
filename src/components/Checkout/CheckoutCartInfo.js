@@ -28,7 +28,7 @@ export const CheckoutCartInfo = () => {
       <h2 className="text-2xl font-bold text-blackTxt mb-4">Order Info</h2>
       {checkoutCart.map((item, index) => (
         <div key={index}>
-          {item.name} x {item.quantity} ${item.price * item.quantity}
+          {item.name} x {item.quantity} $  {(item.price - (item.price * item.discount) / 100).toFixed(2)}
         </div>
       ))}
       <div className="flex w-full items-center justify-between  mt-4"><h3 className="font-bold">Total</h3><h3 className="font-bold">${Math.floor(total)}</h3></div>

@@ -52,7 +52,7 @@ export const Cart = () => {
                       <div className="flex-col gap-4">
                         <h2 className="text-blackTxt">{meal.name}</h2>
                         <h2 className="text-blackTxt font-bold">
-                          ${meal.price}
+                          $  {(meal.price - (meal.price * meal.discount) / 100).toFixed(2)}
                         </h2>
                         <select
                           name="quantity"
