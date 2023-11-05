@@ -33,7 +33,7 @@ export const cateringMeals = [
       image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg",
       description: "Fall-off-the-bone ribs smothered in tangy barbecue sauce, with coleslaw and cornbread.",
       quantity:1,
-      discount:0,
+      discount:40,
     },
     {
       id: 5,

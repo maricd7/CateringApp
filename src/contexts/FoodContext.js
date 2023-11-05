@@ -54,6 +54,7 @@ export const FoodContextProvider = ({ children }) => {
     foods.forEach((food) => {
       discounts.push(food.discount);
     });
+    discounts.sort(compareNumbers)
     let lastIndex = discounts.length - 1;
     const discountedProduct = foods.filter(
       (meal) => meal.discount === discounts[lastIndex]
