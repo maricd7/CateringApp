@@ -1,13 +1,21 @@
 import React from "react";
 import { Radio } from "../common";
 
-export const PaymentMethod = () => {
+export const PaymentMethod = ({ checkPayment }) => {
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-blackTxt">Payment Method</h2>
-      <div className="flex gap-8">
-        <Radio text="Cash" icon="material-symbols:attach-money" />
-        <Radio text="Card" icon="material-symbols:credit-card-outline" />
+    <div className="mb-8">
+      <h2 className="text-xl font-semibold text-blackTxt">Payment Method</h2>
+      <div className="flex justify-between gap-4">
+        <Radio
+          onChange={() => checkPayment(true, false)}
+          text="Cash"
+          icon="material-symbols:attach-money"
+        />
+        <Radio
+          onChange={() => checkPayment(false, true)}
+          text="Card"
+          icon="material-symbols:credit-card-outline"
+        />
       </div>
     </div>
   );

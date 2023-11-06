@@ -11,7 +11,7 @@ export const CheckoutCartInfo = () => {
   }, []);
   useEffect(()=>{
     checkoutCart.forEach(item=>{
-      let price= item.price*item.quantity
+      let price= (item.price - (item.price * item.discount) / 100).toFixed(2)*item.quantity
       prices.push(price);
     })
    
@@ -31,7 +31,7 @@ export const CheckoutCartInfo = () => {
           {item.name} x {item.quantity} $  {(item.price - (item.price * item.discount) / 100).toFixed(2)}
         </div>
       ))}
-      <div className="flex w-full items-center justify-between  mt-4"><h3 className="font-bold">Total</h3><h3 className="font-bold">${Math.floor(total)}</h3></div>
+      <div className="flex w-full items-center justify-between  mt-4"><h3 className="font-bold">Total</h3><h3 className="font-bold">${total.toFixed(2)}</h3></div>
     </div>
   );
 };
