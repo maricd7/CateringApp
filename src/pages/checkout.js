@@ -20,10 +20,7 @@ export const Checkout = () => {
           <div className="flex flex-col gap-8 mb-8">
             <CheckoutMain />
           </div>
-          <div>
-            <CheckoutCartInfo />
-            <CtaButton text="Finish Order" />
-          </div>
+          <CheckoutCartInfo />
         </div>
       </div>
     </div>
