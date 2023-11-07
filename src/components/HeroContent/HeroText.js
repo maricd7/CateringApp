@@ -2,9 +2,7 @@ import React from "react";
 import { CtaButton,Heading } from "../common";
 
 export const HeroText = () => {
-  const onCtaButtonClick = () => {
-    console.log("uradi nesto drugo");
-  };
+
   return (
     <div className="h-full mt-32 mr-4">
       <Heading text={[" Welcome to ", <span className="text-primCol">CaterEase: </span>,  "Where Every Bite is an Experience"]}/>
@@ -16,7 +14,6 @@ export const HeroText = () => {
       <a href="#foods"><CtaButton
         iconName="material-symbols:fastfood-outline"
         text="Order food"
-        onClick={onCtaButtonClick}
       /></a>
     </div>
   );

@@ -72,5 +72,5 @@ export const cateringMeals = [
       discount:50,
     }
   ];
-  console.log(cateringMeals);
+
   

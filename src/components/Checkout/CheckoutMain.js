@@ -1,73 +1,109 @@
 import React, { useState } from "react";
-import { CtaButton, Input, InvalidInput, Textarea } from "../common";
+import { Formik, Field, Form, ErrorMessage } from "formik"; // Step 1
+import * as Yup from "yup"; // Import Yup for schema validation
+import { CartModal, CtaButton, Textarea } from "../common";
 import { PaymentMethod } from "./PaymentMethod";
-import { orderSchema } from "../../Validations/OrderValidation";
-export const CheckoutMain = () => {
-  const [cash, setCash] = useState(true);
-  const [card, setCard] = useState(false);
+import { validationSchema } from "../../Validations/OrderValidation";
+import { initialValues } from "../../Validations/InitialValues";
 
-  const checkPayment = (cash, card) => {
-    if (cash) {
-      setCash(true);
-      setCard(false);
+export const CheckoutMain = () => {
+  const [paymentMethod, setPaymentMethod] = useState("cash");
+  const [modal,setModal] = useState(false)
+
+  const checkPayment = (isCash) => {
+    if (isCash === "cash") {
+      setPaymentMethod("cash");
     } else {
-      setCard(true);
-      setCash(false);
+      setPaymentMethod("card");
     }
   };
-
-  const createUserCard = async (e) => {
-    e.preventDefault();
-    let formData = {
-      name: e.target[0].value,
-      number: e.target[1].value,
-      cardNumber: e.target[2].value,
-      cvc: e.target[3].value,
-      address: e.target[4].value,
-    };
-    console.log(formData);
-    const isValid = await orderSchema.isValid(formData);
-    console.log(isValid);
+  const validationSchema = Yup.object().shape({
+    buyerName: Yup.string().required("Name is required"),
+    number: Yup.number().required("Number is required"),
+    address: Yup.string().required("Address is required"),
+    cardNumber: paymentMethod === "card" ? Yup.number().required("Card Number is required") : Yup.number(),
+    cvc: paymentMethod === "card" ? Yup.number().required("CVC is required") : Yup.number(),
+  });
+  const submitForm = (values) => {
+    // console.log('submitForm called');
+    setModal(true)
+    setTimeout(()=>{
+      setModal(false)
+    },3000)
+    // console.log(values);
+    console.log('order finished')
   };
-  const createUserCash = async (e) => {
-    e.preventDefault();
-    let formData = {
-      name: e.target[0].value,
-      number: e.target[1].value,
-      address: e.target[2].value,
-    };
-    console.log(formData);
-    const isValid = await orderSchema.pick(['name', 'number', 'address']).isValid(formData);
-  };
-
 
   return (
     <div className="w-96">
+      {modal&& <CartModal href='/' text='Successful order!' btnText='Go back to Home page'/>}
       <h2 className="text-2xl font-bold text-blackTxt mb-4">Your Info</h2>
       <PaymentMethod checkPayment={checkPayment} />
-      {card && (
-        <form onSubmit={createUserCard}>
-          <Input text="Name" />
-          <Input text="Your Number" />
 
-          <div className="flex gap-4">
-            <Input text="Card Number" /> <Input text="CVC" />
-          </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={submitForm}
+      >
+        <Form>
+          <Field
+            className="field"
+            type="text"
+            name="buyerName"
+            placeholder="Name"
+          />
+          <ErrorMessage className="error" name="buyerName" component="div" />
 
-          <Input text="Address" />
-          <Textarea text="Your Message (optional)" />
+          <Field
+            className="field"
+            type="text"
+            name="number"
+            placeholder="Your Number"
+          />
+          <ErrorMessage className="error" name="number" component="div" />
+
+          {paymentMethod === "cash" && (
+            <>
+              <Field
+                className="field"
+                type="text"
+                name="address"
+                placeholder="Address"
+              />
+              <ErrorMessage className="error" name="address" component="div" />
+            </>
+          )}
+
+          {paymentMethod === "card" && (
+            <>
+              <Field
+                className="field"
+                type="text"
+                name="cardNumber"
+                placeholder="Card Number"
+              />
+             <ErrorMessage className="error" name="cardNumber" component="div" />
+
+              <Field
+                className="field"
+                type="text"
+                name="cvc"
+                placeholder="CVC"
+              />
+                <ErrorMessage className="error" name="cvc" component="div" />
+            </>
+          )}
+
+
+          <Field
+            className="field"
+            component="textarea"
+            name="textarea"
+            placeholder="Your Message (optional)"
+          />
           <CtaButton type="submit" text="Finish Order" />
-        </form>
-      )}
-      {cash && (
-        <form onSubmit={createUserCash}>
-        <Input text="Name" />
-        <Input text="Your Number" />
-        <Input text="Address" />
-        <Textarea text="Your Message (optional)" />
-        <CtaButton type="submit" text="Finish Order" />
-      </form>
-      )}
+        </Form>
+      </Formik>
     </div>
   );
 };

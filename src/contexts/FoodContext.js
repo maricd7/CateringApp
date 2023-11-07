@@ -31,7 +31,7 @@ export const FoodContextProvider = ({ children }) => {
   // }, []);
 
   const addToCart = (id) => {
-    console.log(cateringMeals);
+  
     const foundFood = foods.find((food) => food.id === id);
     setCart([...cart, foundFood]);
   };

@@ -5,7 +5,7 @@ import { CtaButton } from "../Buttons";
 
 export const Navbar = ({ items }) => {
   const onCtaButtonClick = () => {
-    console.log("Navbar on click");
+    // console.log("Navbar on click");
     window.location.hash = "foods";
   };
 

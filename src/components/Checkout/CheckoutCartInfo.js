@@ -22,7 +22,7 @@ export const CheckoutCartInfo = () => {
     setTotal(sum)
   },[checkoutCart])
 
-  console.log(prices)
+  // console.log(prices)
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-bold text-blackTxt mb-4">Order Info</h2>

@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { CtaButton } from "../../Buttons";
 import { useFoodContext } from "../../../../contexts";
 
-export const CartModal = ({text, btnText}) => {
+export const CartModal = ({text, btnText,href}) => {
   const { cart } = useFoodContext();
   const { foods, addToCart, removeFromCart,saveCart } = useFoodContext();
   
@@ -13,7 +13,7 @@ export const CartModal = ({text, btnText}) => {
         <Icon  icon="fluent-emoji:face-savoring-food" width="128" height="128" />
         <h2>{text}</h2>
         <p className="text-sm text-gray-500"></p>
-        <a href="/checkout"><CtaButton text='Go to checkout' onClick={saveCart(cart)}/></a>
+        <a href={href}><CtaButton text={btnText} onClick={saveCart(cart)}/></a>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export const Checkout = () => {
   const { cart } = useFoodContext();
 
   return (
-    <div className="m-8 w-full ">
+    <div className="m-8">
       <CheckoutHeader />
       <div className="flex flex-col items-center justify-center gap-16">
         <div className="flex gap-48 ">

@@ -26,7 +26,7 @@ function FoodContainer() {
   return (
     <div className="mt-8">
       <ul className="flex flex-wrap gap-16 justify-between relative">
-        {modal && <CartModal text="Added To Cart" btnText="OrderNow" />}
+        {modal && <CartModal text="Added To Cart" btnText="OrderNow" href='/checkout'/>}
         {foods.map((meal, index) => (
           <li key={index}>
             <div className="max-w-1/2 rounded-lg relative bg-white p-4 shadow-lg flex flex-col gap-4 border border-zinc-200 hover:scale-110">
