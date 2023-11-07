@@ -7,6 +7,9 @@ const FoodContext = createContext({
   addToCart: () => [],
   removeFromCart: () => [],
   saveCart: () => [],
+  filterVegan:()=>[],
+  filterAll:()=>[],
+  filterMeat:()=>[],
   getTopProduct:null,
 });
 
@@ -62,6 +65,20 @@ export const FoodContextProvider = ({ children }) => {
     setTopProduct(discountedProduct[0]);
     return discountedProduct[0];
   };
+  const filterVegan = ()=>{
+    let veganFoods = cateringMeals.filter(meal=> meal.vegan===true); 
+    console.log(veganFoods)
+    setFoods(veganFoods);
+  }
+  const filterAll =()=>{
+    setFoods(cateringMeals)
+  }
+  const filterMeat = ()=>{
+    let meatFoods = cateringMeals.filter(meal=> meal.meat===true); 
+    console.log(meatFoods)
+    setFoods(meatFoods);
+  }
+  
 
   const contextValue = {
     foods,
@@ -72,6 +89,9 @@ export const FoodContextProvider = ({ children }) => {
     topProduct,
     getTopProduct,
     setTopProduct,
+    filterVegan,
+    filterAll,
+    filterMeat,
   };
 
   return (

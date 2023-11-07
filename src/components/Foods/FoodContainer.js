@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AddToBag from "../Buttons/AddToBag";
 import { useFoodContext } from "../../contexts";
-import { CartModal, Secondary } from "../common";
-
+import { CartModal, Filter, Secondary } from "../common";
+import { Filters } from "./Filters";
 function FoodContainer() {
   const [modal, setModal] = useState(false);
-  const { foods, addToCart } = useFoodContext();
+  const { foods, addToCart} = useFoodContext();
   const addProductItemToContext = (id) => () => {
     addToCart(id);
     modalSetter();
@@ -20,11 +20,11 @@ function FoodContainer() {
   function calculateDiscountPrice(discount) {
     return discount > 0 ? discount : 0;
   }
-  // New Price = Original Price - (Original Price * (Discount Percentage / 100))
+  // New Price = Original Price - (Original Price * (Discount Percentage / 100)) 
   if (!foods) return <div>Loading...</div>;
-
   return (
     <div className="mt-8">
+      <Filters/>
       <ul className="flex flex-wrap gap-16 justify-between relative">
         {modal && <CartModal text="Added To Cart" btnText="OrderNow" href='/checkout'/>}
         {foods.map((meal, index) => (
