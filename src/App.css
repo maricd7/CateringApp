@@ -62,3 +62,29 @@
 .error{
   color: red;
 }
+
+.burger{
+  display: none;
+}
+/* RESPONSIVE */
+@media screen and (max-width:800px){
+  .navitems{
+    display: none;
+  }
+  .burger{
+    display:block;
+  }
+  .heroImg{
+    display: none;
+  }
+  .heading{
+    font-size: 2rem;
+  }
+  .hero-text{
+    margin-top: 1.5rem;
+    max-width: 80%;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
