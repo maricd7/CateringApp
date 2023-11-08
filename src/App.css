@@ -86,5 +86,82 @@
   }
   .hero-text p {
     font-size: 1rem;
+    margin-right: 2rem;
   }
+  .hero-content{
+    margin: 0 1rem;
+  }
+  
 }
+@media screen and (max-width:480px){
+
+  .hero-content{
+    margin: 0 1rem;
+    justify-content: flex-start;
+  }
+  .heading{
+    font-size: 2rem;
+  }
+  .hero-text{
+    margin-top: 1rem;
+    max-width: 90%;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .navbar{
+    margin: 0.5rem 1rem;
+  }
+  .top-product{
+    display: none;
+
+  }
+  .top-product-bg{
+    background: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column  ;
+    gap: 2rem;
+    justify-content: flex-start;
+
+  }
+  .phone-top-product-heading{
+    font-size: 1.5rem;
+    color: #242424  ;
+  }
+  #foods{
+    padding: 1rem;
+  }
+  .filters{
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .newsletter{
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    height: min-content; ;
+  }
+  .newsletter img{
+    display: none;
+  }
+  .newsletter div{
+    width: 100%;
+  }
+  .newsletter-text{
+    flex-direction: column;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  .input-nl{
+    display: flex;
+    flex-direction: column;
+  }
+  .bag-toggler{
+    right: 1rem;
+    bottom: 0.5rem;
+  }
+  #foods{
+    flex-wrap: wrap;
+  }
+ }

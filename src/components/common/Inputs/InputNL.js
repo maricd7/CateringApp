@@ -4,7 +4,7 @@ export const InputNL = () => {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-white">Email</label>
-      <div className="flex w-full gap-2">
+      <div className="input-nl flex w-full gap-2">
         <input
           type="email"
           placeholder="Enter your email."

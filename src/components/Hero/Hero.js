@@ -8,7 +8,7 @@ function Hero() {
   return (
     <div>
       <Navbar items={MENU} />
-      <div className="flex mt-12 mx-24 items-center justify-center	">
+      <div className="hero-content flex mt-12 mx-24 items-center justify-center	">
         <HeroText className="max-w-5xl w-1/2" />
         <MainImage className="w-full" />
       </div>

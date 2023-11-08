@@ -11,7 +11,7 @@ export const Navbar = ({ items }) => {
     window.location.hash = "foods";
   };
   return (
-    <div className="mt-6 mx-24 flex justify-between items-center">
+    <div className="navbar mt-6 mx-24 flex justify-between items-center">
       <Logo />
       <ul className="navitems flex justify-between items-center w-96">
         {items.map(({ id, name, url }) => (

@@ -2,7 +2,7 @@ import React from 'react'
 import { Icon } from '@iconify/react'
 function Bag({toggleCart}) {
   return (
-    <div className='fixed right-24 bottom-12 z-40' onClick={toggleCart}>
+    <div className='bag-toggler fixed right-24 bottom-12 z-40' onClick={toggleCart}>
       <Icon  width="64" height="64" icon="material-symbols:shopping-bag-outline-sharp" 
       className='bg-gradient-to-r from-ctaGradStart to-ctaGradEnd 
       text-white 
