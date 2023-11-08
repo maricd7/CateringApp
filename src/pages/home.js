@@ -1,7 +1,7 @@
 import { FoodContextProvider } from "../contexts";
 import "../App.css";
 import Hero from "../components/Hero/Hero";
-import About from "../components/About/About";
+import About from "../components/About/AboutContainer";
 import Foods from "../components/Foods/Foods";
 import Thanks from "../components/Thanks/Thanks";
 import Footer from "../components/Footer/Footer";
