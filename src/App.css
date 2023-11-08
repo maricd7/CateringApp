@@ -94,6 +94,9 @@
   
 }
 @media screen and (max-width:480px){
+  .cart-animate{
+    width: 100%;
+  }
 
   .hero-content{
     margin: 0 1rem;
