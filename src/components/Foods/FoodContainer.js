@@ -4,7 +4,7 @@ import { useFoodContext } from "../../contexts";
 import { CartModal, Filter, Secondary } from "../common";
 import { Filters } from "./Filters";
 import { BoxText, DiscountTag, MealThumb,PriceElement } from "./FoodContainerElements";
-function FoodContainer() {
+function FoodContainer({showFoodInfo}) {
   const [modal, setModal] = useState(false);
   const { foods, addToCart } = useFoodContext();
   const addProductItemToContext = (id) => () => {
@@ -32,7 +32,7 @@ function FoodContainer() {
         )}
         {foods.map((meal, index) => (
           <li key={index}>
-            <div className="max-w-1/2 rounded-lg relative bg-white p-4 shadow-lg flex flex-col gap-4 border border-zinc-200 hover:scale-110">
+            <div className="max-w-1/2 rounded-lg relative bg-white p-4 shadow-lg flex flex-col gap-4 border border-zinc-200 hover:scale-110" onClick={() => showFoodInfo(meal)}>
               {meal.discount > 0 && (
                <DiscountTag discount={meal.discount}/>
               )}
